@@ -1,0 +1,33 @@
+<?php
+
+class data_model extends CI_Model 
+{
+	private $primary_key= 'no_id';
+	//private $table_name= 'sms_class_pb_1';
+
+	function __construct(){
+		parent::__construct();
+		
+	}
+
+	function data_list($table_name)
+	{
+		$this->load->database();
+		$query = $this->db->get($table_name);
+		return $query->result_array();
+	}
+	
+	
+	function get_data($kode) //untuk mengambil record berdasarkan kodenya
+	{
+		$this->db->where('kode_cd', $kode);
+		$query = $this->db->get($this->table_name);
+		if($query->num_rows() > 0){
+			return $query->row();
+		}
+		else{
+			return null;
+		}
+	}
+}
+?>

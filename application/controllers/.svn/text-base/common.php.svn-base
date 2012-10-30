@@ -1,0 +1,48 @@
+<?php
+
+//<!--
+//*  DILARANG MENGUBAH ATAU MENGHAPUS HAK CIPTA INI.
+//* 
+//*  Hak Cipta 2012 Nurul Huda Mustaqim.
+//* 
+//*  Semua isi dalam file ini adalah hak milik dari Nurul Huda Mustaqim.
+//*  Anda tak diperkenankan untuk menggunakan file atau mengubah file ini
+//*  kecuali Anda tidak menghapus atau merubah hak cipta ini.
+//* 
+//*  Pemilik tidak bertanggung jawab jika Anda menyalah gunakan file ini
+//*  dan Pemilik TIDAK MENJAMIN apapun atas file ini.
+//* 
+//*  Anda bisa menghubungi pemilik hak cipta ini di :
+//*  email : office_404@yahoo.com
+//*  fb  : http://www.facebook.com/nurulhudamustaqim
+//*  ym : office_404
+//-->
+?>
+<?php
+
+if (!defined('BASEPATH'))
+    exit('Script ini tidak diizinkan');
+
+/**
+ * Description of common
+ *
+ * @author Nurul Huda Mustaqim -- Trenggalek
+ */
+class common extends CI_Controller {
+
+    function __construct() {
+        parent::__construct();
+        $this->load->model("data_model","",true);
+    }
+
+    function index() {
+        
+    }
+    function filter(){
+        $key = $_POST['data'];
+        $table = $_POST['table'];
+        $this->data_model->
+        echo $table;
+    }
+
+}

@@ -1,0 +1,88 @@
+<html>
+<head>
+	<link href="<?php echo base_url(); ?>assets/css/example.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/json/json2.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/swfobject.js"></script>
+	<script type="text/javascript">
+		swfobject.embedSWF("<?php echo base_url(); ?>/assets/swf/open-flash-chart.swf", "my_chart", "100%", "700", "9.0.0");
+	</script>
+	<script type="text/javascript">
+		function open_flash_chart_data()
+		{
+		return JSON.stringify(data);
+		}
+		function findSWF(movieName) {
+			if (navigator.appName.indexOf("Microsoft")!= -1) {
+			return window[movieName];
+			} else {
+			return document[movieName];
+			}
+		}
+		var data = <?php echo $graph->toPrettyString(); ?>;
+	</script>
+ <style>
+ .link {float:left; }
+ 
+ </style>
+
+ 
+</head>
+<body>
+
+	<div id="body">
+	<div id="header"><img src="<?php echo base_url(); ?>assets/css/images/header.jpg"></div>
+	<div id="garis"></div>
+	<div id ="link">
+	<table width = "100%">
+	<tr><td><?php echo anchor('sms_class_pb1/index/','SMS Class per Brand 1',array('class'=>'index')); ?></td>	
+		<td><?php echo anchor('sms_class_pb2/index/','SMS Class per Brand 2',array('class'=>'index')); ?></td>
+		<td><?php echo anchor('sms_class_pb3/index/','SMS Class per Brand 3',array('class'=>'index')); ?></td>	
+		<td><?php echo anchor('sms_class_pb4/index/','SMS Class per Brand 4',array('class'=>'index')); ?></td></tr>
+	<tr><td><?php echo anchor('sms_class_pb5/index/','SMS Class per Brand 5',array('class'=>'index')); ?></td>	
+		<td><?php echo anchor('sms_class_pb6/index/','SMS Class per Brand 6',array('class'=>'index')); ?></td>
+		<td><?php echo anchor('sms_class_pb7/index/','SMS Class per Brand 7',array('class'=>'index')); ?></td>	
+		<td><?php echo anchor('sms_class_pb8/index/','SMS Class per Brand 8',array('class'=>'index')); ?></td></tr>
+	<tr><td><?php echo anchor('est_msc_onn_pr/index/','Est MSC Onnet',array('class'=>'index')); ?></td>
+		<td><?php echo anchor('est_msc_offn_pr/index/','Est MSC Offnet',array('class'=>'index')); ?></td>
+		<td><?php echo anchor('est_msc_all_pr/index/','Est MSC All',array('class'=>'index')); ?></td>
+		<td><?php echo anchor('est_msc_p2p_pr/index/','Est MSC P2P',array('class'=>'index')); ?></td></tr>		
+	</table>
+	</div>
+	
+	<div id="my_chart"></div>
+
+	<div class="middle_content">
+	<table>
+	<caption>Est MSC</caption>
+	<thead><tr>
+	<th class="graph_id" width=100px title=region>Region</th>
+	<th class="graph_value" width=150px  title="1">Attemp 1</th>
+	<th class="graph_value" width=150px  title="2">Delivered Total</th>
+	<th class="graph_value" width=150px  title="3">Delivered < 10 s</th>
+	
+	</tr>
+	</thead><tbody>
+	
+	<?php
+	foreach ($query as $row)
+	{
+		echo "<tr><td>" .$row['Region']."</td><td>".$row['Attempt'] ."</td><td>" 
+		.$row['Delivered (total)'] ."</td><td>" .$row['Delivered (<10s)'] ."</td></tr>";
+	}
+
+	?>
+	
+	</tbody></table>
+	</div>
+	<br/>
+	 
+	 <div id="footer">
+	
+	<div id="footer1"><h6>copyright totalindo.co.id 2012</h6></div>
+	
+	</div>
+	 
+	</div>
+	
+</body>
+</html>

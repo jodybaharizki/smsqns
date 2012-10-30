@@ -1,0 +1,167 @@
+<html>
+    <title>Data Grafik</title>
+
+
+
+    <head>
+        <script src="js/jquery-1.3.2.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(".stripeMe tr").mouseover(function(){$(this).addClass("over");}).mouseout(function(){$(this).removeClass("over");});
+                $(".stripeMe tr:even").addClass("alt");
+            });
+        </script>
+
+        <link href="<?php echo base_url(); ?>assets/css/example.css" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/jquery/jquery.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/json/json2.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/swfobject.js"></script>
+        <script type="text/javascript">
+            swfobject.embedSWF("<?php echo base_url(); ?>/assets/swf/open-flash-chart.swf", "my_chart", "100%", "700", "9.0.0");
+        </script>
+        <script type="text/javascript">
+		
+            function filter(key){
+                $.ajax({
+                    type:'POST',
+                    url:"<?php echo site_url('common/filter'); ?>",
+                    data: {data:key,table:"<?php echo $table;?>"},
+                    success:function(a){
+//                        alert(a);
+                    },
+                    error:function(XMLHttpRequest){
+                        alert(XMLHttpRequest.responseText);
+                    }
+                })
+            }
+		
+            function open_flash_chart_data()
+            {
+                return JSON.stringify(data_1);
+            }
+		
+            function load_1()
+            {
+                alert("Grafik data");
+                tmp = findSWF("my_chart");
+                x = tmp.load( JSON.stringify(data_1) );
+            }
+		
+            function load_2()
+            {
+                alert("Grafik data dalam %");
+                tmp = findSWF("my_chart");
+                x = tmp.load( JSON.stringify(data_2) );
+            }
+	
+            function findSWF(movieName) {
+                if (navigator.appName.indexOf("Microsoft")!= -1) {
+                    return window[movieName];
+                } else {
+                    return document[movieName];
+                }
+            }
+		    
+            var data_1 = <?php echo $graph->toPrettyString(); ?>;
+            var data_2 = <?php echo $graph2->toPrettyString(); ?>;
+	
+        </script>
+
+        <style>
+            .link {float:left; }
+
+        </style>
+
+
+    </head>
+    <body>
+
+        <div id="body">
+            <div id="header"><img src="<?php echo base_url(); ?>assets/css/images/header.jpg"></div>
+            <div id="search"><input type="text" class="inputan" placeholder="search"><img src="<?php echo base_url(); ?>assets/css/images/url.png" width="30px" height="30px"></div>
+            <div id="garis"></div>
+            <div id ="link">
+
+
+
+
+                <table width = "100%" id="hover">
+                    <tr><td><?php echo anchor('sms_class_pb1/index/', 'SMS Class per Brand 1', array('class' => 'index')); ?></td>	
+                        <td><?php echo anchor('sms_class_pb2/index/', 'SMS Class per Brand 2', '', array('class' => 'index')); ?></td>
+                        <td><?php echo anchor('sms_class_pb3/index/', 'SMS Class per Brand 3', array('class' => 'index')); ?></td>	
+                        <td><?php echo anchor('sms_class_pb4/index/', 'SMS Class per Brand 4', array('class' => 'index')); ?></td></tr>
+                    <tr><td><?php echo anchor('sms_class_pb5/index/', 'SMS Class per Brand 5', array('class' => 'index')); ?></td>	
+                        <td><?php echo anchor('sms_class_pb6/index/', 'SMS Class per Brand 6', array('class' => 'index')); ?></td>
+                        <td><?php echo anchor('sms_class_pb7/index/', 'SMS Class per Brand 7', array('class' => 'index')); ?></td>	
+                        <td><?php echo anchor('sms_class_pb8/index/', 'SMS Class per Brand 8', array('class' => 'index')); ?></td></tr>
+                    <tr><td><?php echo anchor('est_msc_onn_pr/index/', 'Est MSC Onnet', array('class' => 'index')); ?></td>
+                        <td><?php echo anchor('est_msc_offn_pr/index/', 'Est MSC Offnet', array('class' => 'index')); ?></td>
+                        <td><?php echo anchor('est_msc_all_pr/index/', 'Est MSC All', array('class' => 'index')); ?></td>
+                        <td><?php echo anchor('est_msc_p2p_pr/index/', 'Est MSC P2P</font>', array('class' => 'index')); ?></td></tr>		
+                </table>
+
+            </div>
+            <div id="garis"></div>
+            <div id="my_chart"></div>
+            <div id="link">
+
+                <div id="hover">
+
+                    <a href="javascript:load_1()"> <input type="button" class="button_menu" value="Grafik Data"></input></a>
+                    <a href="javascript:load_2()"> <input type="button" class="button_menu" value="Grafik Data Dalam %"></input></a>
+                </div>
+            </div>
+            <div class="middle_content">
+                <table border="1">
+                    <caption>SMS Class Per Brand</caption>
+                    <br/>
+
+                    <input type="text" placeholder="search" width="100px"><img src="<?php echo base_url(); ?>assets/css/images/url.png" width='30px' height='20px' align="center">
+
+                    </br>
+                    <thead><tr>
+                            <th class="graph_id" width=100px title=hari>Date</th>
+                            <th class="graph_id" width=100px title=tanggal>Brand</th>
+                            <th class="graph_id" width=100px title=tanggal>Class</th>
+                            <th class="graph_value" width=150px  title="1">Attemp 2</th>
+                            <th class="graph_value" width=150px  title="2">Deliver</th>
+                            <th class="graph_value" width=150px  title="3">Less 10 s</th>
+                            <th class="graph_value" width=150px  title="4">Delivery Rate</th>
+                            <th class="graph_value" width=150px  title="5">Delivery < 10s Rate</th>
+                        </tr>
+                    </thead>
+                    <tr style="background-color: white;">
+                        <th  title=tanggal><input type="text" style="width: 100px" onkeyup="filter(this.value)"/></th>
+                        <th  title=tanggal><input type="text" width=""/></th>
+                        <th  title=tanggal><input type="text"/></th>
+                        <th  title=tanggal><input type="text"/></th>
+                        <th  title=tanggal><input type="text"/></th>
+                        <th  title=tanggal><input type="text"/></th>
+                        <th  title=tanggal><input type="text"/></th>
+                        <th  title=tanggal><input type="text"/></th>
+                    </tr>
+                    <table>
+                        <tbody>
+
+                            <?php
+                            foreach ($query as $row) {
+                                echo "<tr><td>" . $row['Date'] . "</td><td>" . $row['Brand'] . "</td><td>" . $row['Class'] . "</td><td>"
+                                . $row['Attempt_2'] . "</td><td>" . $row['Delivered'] . "</td><td>" . $row['Delivered <10s'] . "</td><td>"
+                                . $row['Delivery Rate'] . "%" . "</td><td>" . $row['Delivery <10s rate'] . "%" . "</td></tr>";
+                            }
+                            ?>
+                        </tbody></table>
+            </div>
+            <br/>
+
+            <div id="footer">
+
+                <div id="footer1"><h6>copyright totalindo.co.id 2012</h6></div>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>

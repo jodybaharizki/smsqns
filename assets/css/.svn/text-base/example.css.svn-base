@@ -1,0 +1,197 @@
+@media screen {
+/*html */
+#header {
+	
+	height: 25%;
+	width:100%;
+	
+	}
+        
+#search {
+        
+    position:absolute;
+    top: 6%;
+    right: 6%;
+    
+        }
+        
+.inputan:focus{
+	background:gold;
+	box-shadow: 0px 0px 0px rgba(255,255,255,0.6);
+	font-family:serif;
+	}
+
+        .inputan{background:#ffffff;
+	box-shadow: 0px 0px 0px rgba(255,255,255,0.6);
+	border-radius:10px;
+	padding-left:10px;
+        padding-right:10px;
+    font-family:serif;
+}
+        
+#garis {width:100%; height:20px; background-color:#002166;  color:#FFFFFF;}
+	
+	
+#body{
+	
+	font: normal 0.7em Arial;
+	/* line-height: 13px;*/
+	color: #000033;
+	margin-left: auto; margin-right: auto;
+	/* added */
+	margin-top:0px;
+	margin-bottom:10px;
+	width:90%; 
+	text-align: justify;
+	position:relative;
+	left:0px;
+	top:0px;
+	border:1px solid #E2E2E2;
+}
+#my_chart
+{
+	width:100%;
+	margin-left: auto; margin-right: auto;
+	
+}
+div.middle_content table{
+	font: normal 1em Arial;
+	color: #2B0F00;
+	width:100%;
+	border:1px solid #CCCCCC;
+	margin-top:10px;
+	margin-bottom:10px;
+	margin-right : 0px;
+}
+div.middle_content table:hover{
+	border:1px solid #FEEBBF;
+}
+
+div.middle_content caption{
+	margin:0px;
+	padding:0px;
+	border:1px solid #CCCCCC;
+	font-weight:bold;
+}
+div.middle_content th, td{
+	vertical-align: top; 
+	height:auto;
+	border-top:1px solid #D2D2D2;
+	text-align:center;	
+}
+div.middle_content th{
+	background-color:#000033;
+	color:white;
+}
+div.middle_content tfoot tr{
+	background-color:#FEEBBF;
+}
+div.middle_content td{
+	text-align:left;
+}
+div.middle_content tr{
+	height:auto;
+}
+
+#link{
+	font: 16 Times New Roman;
+	alignment-baseline:central;
+	color:#9C2542;
+	width:100%;
+	border:1px solid #CCCCCC;
+	margin-top:5px;
+	margin-bottom:5px;
+        text-decoration: none;
+}
+
+.button_menu{
+background:gold;
+	button-shadow: 0px 0px 0px rgba(255,255,255,0.4);
+	border-radius:0px;
+	padding-left:10px;
+	font-family:arial;
+        
+        
+    
+}
+
+.button_menu:hover{
+	background: -moz-linear-gradient(top, #FEEBBF, gold);
+	border-radius:0px;
+	button-shadow: 0px 0px 2px rgba(255,255,255,0.6);
+	font-family:arial;
+       
+	}
+
+
+#hover a:link { text-decoration: none}
+#hover a:hover,
+#hover a.current{background-color:gold;
+}
+
+
+
+
+#footer1{
+	
+	width:150px;
+	margin-right:auto;
+	margin-left:auto;
+	
+	}
+#footer {
+	
+	color:#333;
+	width:100&;
+	alignment-adjust:central;
+	
+	}
+        
+        
+ 
+    
+    #body1 {
+        background: #fff;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 900px;
+        margin: 0px;
+     
+    }
+    
+    th {
+        background: #3e83c9;
+        color: #fff;
+        font-weight: bold;
+        padding: 2px 11px;
+        text-align: left;
+        border-right: 1px solid #000;
+        line-height: 2.2;
+        width:auto;
+    }
+    
+    td {
+        padding: 6px 11px;
+        border-bottom: 1px solid #95bce2;
+        vertical-align: top;
+    }
+    
+    td * {
+        padding: 6px 11px;
+    }
+    
+    tr.alt td {
+        background: #ecf6fc;
+    }
+    
+    tr.over td, tr:hover td {
+        background: #bcd4ec;
+    }
+    
+    </style>
+    
+
+/*end html*/
+}
